@@ -206,22 +206,28 @@ public class findSumOfOddAndEven extends javax.swing.JFrame {
         // TODO add your handling code here:
         int num1 = Integer.parseInt(valueFrom.getText());
         int num2 = Integer.parseInt(valueTo.getText());
-        int result = 0;
-        if (oddRadioBtn.isEnabled()) {
-            for (int i = num1; i < num2; i++) {
-                if (i%2!=0) {
-                    txtArea.append("result = "+(result + i));
+        if (oddRadioBtn.isSelected() == oddRadioBtn.isEnabled()) {
+            int oddSum = 0;
+            for (int i = num1; i <= num2; i++) {
+                if (i % 2 == 1) {
+                    oddSum = oddSum + i;
+                    txtArea.setText("result = " + oddSum);
+
                 }
             }
-        }
-        else if (evenRadioBtn.isEnabled()) {
-            for (int j = num1; j < num2; j++) {
-                if (j%2!=1) {
-                } else {
-                    txtArea.setText(txtArea.getText() + "result = "+(result + j));
+        } else if (evenRadioBtn.isSelected()== evenRadioBtn.isEnabled()) {
+            int evenSum = 0;
+            for (int i = num1; i <= num2; i++) {
+                if (i % 2 == 0) {
+                    evenSum += i;
+                    txtArea.setText("result = " + evenSum);
+
                 }
             }
+        } else {
+            txtArea.setText("invalid Arguments");
         }
+
 
     }//GEN-LAST:event_resultBtnActionPerformed
 
@@ -230,6 +236,7 @@ public class findSumOfOddAndEven extends javax.swing.JFrame {
         txtArea.setText("");
         valueFrom.setText("");
         valueTo.setText("");
+
     }//GEN-LAST:event_clearBtnActionPerformed
 
     /**
@@ -258,12 +265,12 @@ public class findSumOfOddAndEven extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(findSumOfOddAndEven.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new findSumOfOddAndEven().setVisible(true);
             }
+
         });
     }
 
